@@ -1,0 +1,33 @@
+### Listar Usuario
+GET http://127.0.0.1:8000/api/usuario
+
+### Guardar Usuario
+POST http://127.0.0.1:8000/api/usuario
+Accept: application/json
+Content-Type: application/json
+
+
+{
+    "name":"prueba",
+    "email": "prueba@mail.com",
+    "password":"prueba123456"
+}
+
+### Mostrar Usuario
+
+GET http://127.0.0.1:8000/api/usuario/2
+
+### Modificar Usuario
+PUT  http://127.0.0.1:8000/api/usuario/3
+Accept: application/json
+Content-Type: application/json
+
+{
+     "name":"kacerobol",
+    "email": "kacerobol@mail.com",
+    "password":"kacero123456"
+
+}
+### Eliminar Usuario
+DELETE http://127.0.0.1:8000/api/usuario/4
+
