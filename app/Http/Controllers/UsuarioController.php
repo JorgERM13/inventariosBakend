@@ -54,7 +54,6 @@ class UsuarioController extends Controller
     }
     public function funModificar(Request $request, $id){
 
-
         try{
 
           $usuario= User::find($id);
@@ -63,7 +62,7 @@ class UsuarioController extends Controller
           $usuario->password = $request->password;
           $usuario->update();
 
-           return response()->json(["mensaje" => "Usuario Modificado"], 201);
+         return response()->json(["mensaje" => "Usuario Modificado"], 201);
 
         }catch (\Exception $e) {
             return response()->json(["mensaje" => $e->getMessage()], 500);
