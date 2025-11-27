@@ -28,11 +28,15 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 
 
-
-
 //CRUD usuarios
-Route::get("/usuario", [UsuarioController::class, "funListar"]);
-Route::post("/usuario", [UsuarioController::class, "funGuardar"]);
-Route::get("/usuario/{id}", [UsuarioController::class, "funMostrar"]);
-Route::put("/usuario/{id}", [UsuarioController::class, "funModificar"]);
-Route::delete("/usuario/{id}", [UsuarioController::class, "funEliminar"]);
+
+Route::middleware('auth:sanctum')->group(function(){
+
+    Route::get("/usuario", [UsuarioController::class, "funListar"]);
+    Route::post("/usuario", [UsuarioController::class, "funGuardar"]);
+    Route::get("/usuario/{id}", [UsuarioController::class, "funMostrar"]);
+    Route::put("/usuario/{id}", [UsuarioController::class, "funModificar"]);
+    Route::delete("/usuario/{id}", [UsuarioController::class, "funEliminar"]);
+
+});
+
