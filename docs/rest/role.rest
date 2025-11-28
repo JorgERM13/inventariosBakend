@@ -3,6 +3,8 @@ Authorization: Bearer 1|qDFVJ2TltDaie3qZXUptUXyj8QLdt0K86AI64QbU84e3ff51
 Content-Type: application/json
 Accept:application/json
 
+
+###Guardar
 POST http://127.0.0.1:8000/api/role
 Authorization: Bearer 1|qDFVJ2TltDaie3qZXUptUXyj8QLdt0K86AI64QbU84e3ff51
 Content-Type: application/json
