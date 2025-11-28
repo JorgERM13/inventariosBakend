@@ -1,7 +1,7 @@
 ### Listar Usuario
 GET http://127.0.0.1:8000/api/usuario
 Accept: application/json
-Authorization: Bearer 4|UeBY2CwVpndAeTVFUenW4dvaOfK6pLNmE3SBSuJXe10a8204
+Authorization: Bearer 1|qDFVJ2TltDaie3qZXUptUXyj8QLdt0K86AI64QbU84e3ff51
 
 
 ### Guardar Usuario
