@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CategoriaController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -12,20 +14,21 @@ Route::get('/user', function (Request $request) {
 //Auth
 
 Route::prefix('/v1/auth')->group(function(){
-
         Route::post("/login", [AuthController::class, "funLogin"]);
         Route::post("/register", [AuthController::class, "funRegister"]);
 
 
-Route::middleware('auth:sanctum')->group(function(){
-
-        Route::get("/profile", [AuthController::class, "funProfile"]);
-        Route::post("/logout", [AuthController::class, "funLogout"]);
-
+        Route::middleware('auth:sanctum')->group(function(){
+            Route::get("/profile", [AuthController::class, "funProfile"]);
+            Route::post("/logout", [AuthController::class, "funLogout"]);
+        });
 });
 
+Route::get("no-autorizado",function(){
+    return response()->json(["mensaje" => "No estas autorizado para ver esta información"], 401);
+})->name("login");
 
-});
+
 
 
 //CRUD usuarios
@@ -38,5 +41,11 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::put("/usuario/{id}", [UsuarioController::class, "funModificar"]);
     Route::delete("/usuario/{id}", [UsuarioController::class, "funEliminar"]);
 
+    //CRUDs
+    Route::apiResource("categoria",CategoriaController::class);
+    Route::apiResource("role",RoleController::class);
+
+
 });
+
 
